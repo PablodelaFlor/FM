@@ -1,0 +1,5 @@
+package com.fmSport.services;
+
+public interface UsuarioService {
+
+}

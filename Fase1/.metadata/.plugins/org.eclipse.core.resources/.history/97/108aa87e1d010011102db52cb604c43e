@@ -1,0 +1,79 @@
+package com.fmSport.service;
+
+import java.time.LocalDate;
+import java.util.List;
+
+import com.fmSport.model.Reserva;
+import com.fmSport.repository.ReservaRepository;
+
+public class ReservaService {
+	 ReservaRepository rr;
+
+    public Reserva crear(Reserva r) {
+        if (r.getEstado() == null) {
+            r.setEstado("RESERVADA");
+        }
+
+        if (r.getFechaReserva() == null) {
+            r.setFechaReserva(LocalDate.now());
+        }
+
+        return rr.save(r);
+    }
+
+    public List<Reserva> listar() {
+        return rr.findAll();
+    }
+
+
+    public Reserva obtener(Long id) {
+        return rr.findById(id).orElse(null);
+    }
+
+
+    public Reserva actualizar(Long id, Reserva datos) {
+        Reserva r = obtener(id);
+
+        if (r == null) {
+            return null;
+        }
+
+        r.setCliente(datos.getCliente());
+        r.setSesion(datos.getSesion());
+        r.setFechaReserva(datos.getFechaReserva());
+        r.setEstado(datos.getEstado());
+        r.setComentarioCliente(datos.getComentarioCliente());
+
+        return rr.save(r);
+    }
+
+
+    public boolean borrar(Long id) {
+        if (!rr.existsById(id)) {
+            return false;
+        }
+
+        rr.deleteById(id);
+        return true;
+    }
+
+ 
+    public List<Reserva> porCliente(Long clienteId) {
+        return rr.findByClienteId(clienteId);
+    }
+
+    public List<Reserva> porSesion(Long sesionId) {
+        return rr.findBySesionId(sesionId);
+    }
+
+    public Reserva cancelar(Long id) {
+        Reserva r = obtener(id);
+
+        if (r == null) {
+            return null;
+        }
+
+        r.setEstado("CANCELADA");
+        return rr.save(r);
+    }
+}

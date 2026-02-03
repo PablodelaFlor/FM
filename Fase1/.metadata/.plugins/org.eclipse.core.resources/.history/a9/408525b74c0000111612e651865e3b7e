@@ -1,0 +1,10 @@
+package com.fmSport.model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name ="nota_fisio")
+public class NotaFisio {
+
+}

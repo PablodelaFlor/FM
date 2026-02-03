@@ -1,0 +1,17 @@
+package com.fmSport.services;
+
+import java.util.List;
+
+import com.fmSport.model.NotaFisio;
+
+public interface NotaFisioService {
+
+
+	NotaFisio crear(NotaFisio n);
+	
+	List<NotaFisio> listar();
+	
+	NotaFisio actualizar(Long id, NotaFisio datos);
+	
+	boolean borrar();
+}

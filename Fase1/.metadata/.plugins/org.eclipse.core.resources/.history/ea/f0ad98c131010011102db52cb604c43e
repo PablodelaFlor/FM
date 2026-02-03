@@ -1,0 +1,33 @@
+package com.fmSport.services;
+
+import java.util.List;
+
+import com.fmSport.model.Pago;
+
+public class PagoServiceImp implements PagoService {
+
+	@Override
+	public Pago crear(Pago p) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Pago> listar() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Pago actualizar(Long id, Pago datos) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean borrar(Long id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

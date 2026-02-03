@@ -1,0 +1,60 @@
+package com.fmSport.service;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.fmSport.model.Cliente;
+import com.fmSport.repository.ClienteRepository;
+
+@Service
+public class ClienteService {
+
+    private final ClienteRepository cr;
+
+    public ClienteService(ClienteRepository cr) {
+        this.cr = cr;
+    }
+
+ 
+    public Cliente crear(Cliente c) {
+        return cr.save(c);
+    }
+
+ 
+    public List<Cliente> listar() {
+        return cr.findAll();
+    }
+
+ 
+    public Cliente obtener(Long id) {
+        return cr.findById(id).orElse(null);
+    }
+
+ 
+    public Cliente actualizar(Long id, Cliente datos) {
+        Cliente c = obtener(id);
+
+        if (c == null) {
+            return null;
+        }
+
+        c.setUsuario(datos.getUsuario());
+        c.setFechaNacimiento(datos.getFechaNacimiento());
+        c.setObjetivos(datos.getObjetivos());
+        c.setLesiones(datos.getLesiones());
+        c.setNivel(datos.getNivel());
+        c.setObservaciones(datos.getObservaciones());
+
+        return cr.save(c);
+    }
+
+
+    public boolean borrar(Long id) {
+        if (!cr.existsById(id)) {
+            return false;
+        }
+
+        cr.deleteById(id);
+        return true;
+    }
+}

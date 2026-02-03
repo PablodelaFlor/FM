@@ -1,0 +1,90 @@
+package com.fmSport.service;
+
+import java.time.LocalDate;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.fmSport.model.Sesion;
+import com.fmSport.repository.SesionRepository;
+
+@Service
+public class SesionService {
+	private final SesionRepository sr;
+
+
+    public Sesion crear(Sesion s) {
+        if (s.getEstado() == null) {
+            s.setEstado("PROGRAMADA");
+        }
+        return sr.save(s);
+    }
+
+    // READ ALL
+    public List<Sesion> listar() {
+        return sr.findAll();
+    }
+
+    // READ BY ID
+    public Sesion obtener(Long id) {
+        return sr.findById(id).orElse(null);
+    }
+
+    // UPDATE
+    public Sesion actualizar(Long id, Sesion datos) {
+        Sesion s = obtener(id);
+
+        if (s == null) {
+            return null;
+        }
+
+        s.setServicio(datos.getServicio());
+        s.setProfesional(datos.getProfesional());
+        s.setFecha(datos.getFecha());
+        s.setCupoMax(datos.getCupoMax());
+        s.setSala(datos.getSala());
+        s.setEstado(datos.getEstado());
+        s.setNotasInternas(datos.getNotasInternas());
+
+        return sr.save(s);
+    }
+
+    // DELETE
+    public boolean borrar(Long id) {
+        if (!sr.existsById(id)) {
+            return false;
+        }
+
+        sr.deleteById(id);
+        return true;
+    }
+
+    // MÉTODOS EXTRA
+    public List<Sesion> porEstado(String estado) {
+        return sr.findByEstado(estado);
+    }
+
+    public List<Sesion> porProfesional(Long profesionalId) {
+        return sr.findByProfesionalId(profesionalId);
+    }
+
+    public List<Sesion> porCategoriaServicio(String categoria) {
+        return sr.findByServicioCategoria(categoria);
+    }
+
+    public List<Sesion> porFecha(LocalDate fecha) {
+        return sr.findByFecha(fecha);
+    }
+
+    public Sesion cambiarEstado(Long id, String estado) {
+        Sesion s = obtener(id);
+
+        if (s == null) {
+            return null;
+        }
+
+        s.setEstado(estado);
+        return sr.save(s);
+    }
+	
+}

@@ -1,0 +1,101 @@
+package com.fmSport.model;
+
+import java.time.LocalDate;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "nota_fisio")
+public class NotaFisio {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	@OneToOne
+	@JoinColumn(name = "sesion_id",unique=true)
+	private Sesion sesion;
+
+	@Column
+	private String motivoConsulta;
+
+	@Column
+	private String evaluacion;
+
+	@Column
+	private String tratamiento;
+
+	@Column
+	private String recomendaciones;
+
+	@Column
+	private LocalDate proximaCita;
+
+	public NotaFisio() {
+		super();
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Sesion getSesion() {
+		return sesion;
+	}
+
+	public void setSesion(Sesion sesion) {
+		this.sesion = sesion;
+	}
+
+	public String getMotivoConsulta() {
+		return motivoConsulta;
+	}
+
+	public void setMotivoConsulta(String motivoConsulta) {
+		this.motivoConsulta = motivoConsulta;
+	}
+
+	public String getEvaluacion() {
+		return evaluacion;
+	}
+
+	public void setEvaluacion(String evaluacion) {
+		this.evaluacion = evaluacion;
+	}
+
+	public String getTratamiento() {
+		return tratamiento;
+	}
+
+	public void setTratamiento(String tratamiento) {
+		this.tratamiento = tratamiento;
+	}
+
+	public String getRecomendaciones() {
+		return recomendaciones;
+	}
+
+	public void setRecomendaciones(String recomendaciones) {
+		this.recomendaciones = recomendaciones;
+	}
+
+	public LocalDate getProximaCita() {
+		return proximaCita;
+	}
+
+	public void setProximaCita(LocalDate proximaCita) {
+		this.proximaCita = proximaCita;
+	}
+
+}

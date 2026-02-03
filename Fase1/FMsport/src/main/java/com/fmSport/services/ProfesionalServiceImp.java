@@ -1,0 +1,52 @@
+package com.fmSport.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.fmSport.model.Profesional;
+import com.fmSport.repository.ProfesionalRepository;
+
+@Service
+public class ProfesionalServiceImp implements ProfesionalService {
+
+	@Autowired
+	ProfesionalRepository pr;
+
+	public Profesional crear(Profesional p) {
+		return pr.save(p);
+	}
+
+	public List<Profesional> listar() {
+		return pr.findAll();
+	}
+
+	public Profesional obtener(Long id) {
+		return pr.findById(id).orElse(null);
+	}
+
+	public Profesional actualizar(Long id, Profesional datos) {
+		Profesional p = obtener(id);
+
+		if (p == null) {
+			return null;
+		}
+
+		p.setUsuario(datos.getUsuario());
+		p.setTipo(datos.getTipo());
+		p.setEspecialidad(datos.getEspecialidad());
+		p.setExperienciaAnios(datos.getExperienciaAnios());
+
+		return pr.save(p);
+	}
+
+	public boolean borrar(Long id) {
+		if (!pr.existsById(id)) {
+			return false;
+		}
+
+		pr.deleteById(id);
+		return true;
+	}
+}

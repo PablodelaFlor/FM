@@ -1,0 +1,16 @@
+package com.fmSport.services;
+
+import java.util.List;
+
+import com.fmSport.model.Cliente;
+
+public interface ClienteService {
+
+	Cliente crear(Cliente c);
+	
+	List<Cliente> listar();
+	
+	Cliente actualizar(Long id,Cliente datos);
+	
+	boolean borrar(Long id);
+}

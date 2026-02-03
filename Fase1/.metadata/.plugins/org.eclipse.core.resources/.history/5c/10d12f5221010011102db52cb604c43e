@@ -1,0 +1,59 @@
+package com.fmSport.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.fmSport.model.NotaFisio;
+import com.fmSport.repository.NotaFisioRepository;
+
+@Service
+public class NotaFisioService {
+
+    @Autowired
+    private NotaFisioRepository nfr;
+
+    // CREATE
+    public NotaFisio crear(NotaFisio nf) {
+        return nfr.save(nf);
+    }
+
+    // READ ALL
+    public List<NotaFisio> listar() {
+        return nfr.findAll();
+    }
+
+    // READ BY ID
+    public NotaFisio obtener(Long id) {
+        return nfr.findById(id).orElse(null);
+    }
+
+    // UPDATE
+    public NotaFisio actualizar(Long id, NotaFisio datos) {
+        NotaFisio nf = obtener(id);
+
+        if (nf == null) {
+            return null;
+        }
+
+        nf.setSesion(datos.getSesion());
+        nf.setMotivoConsulta(datos.getMotivoConsulta());
+        nf.setEvaluacion(datos.getEvaluacion());
+        nf.setTratamiento(datos.getTratamiento());
+        nf.setRecomendaciones(datos.getRecomendaciones());
+        nf.setProximaCita(datos.getProximaCita());
+
+        return nfr.save(nf);
+    }
+
+    // DELETE
+    public boolean borrar(Long id) {
+        if (!nfr.existsById(id)) {
+            return false;
+        }
+
+        nfr.deleteById(id);
+        return true;
+    }
+}

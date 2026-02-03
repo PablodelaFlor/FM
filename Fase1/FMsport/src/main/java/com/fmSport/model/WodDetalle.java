@@ -1,0 +1,94 @@
+package com.fmSport.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "wod_detalle")
+public class WodDetalle {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	@OneToOne
+	@JoinColumn(name = "sesion_id", unique = true)
+	private Sesion sesion;
+
+	@ManyToMany
+	@JoinTable(name = "wod_ejercicio", joinColumns = @JoinColumn(name = "wod_id"), inverseJoinColumns = @JoinColumn(name = "ejercicio_id"))
+	private List<Ejercicio> ejercicios = new ArrayList<>();
+
+	@Column
+	private String titulo;
+
+	@Column
+	private String descripcion;
+
+	@Column
+	private String objetivoDia;
+
+	public WodDetalle() {
+		super();
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Sesion getSesion() {
+		return sesion;
+	}
+
+	public void setSesion(Sesion sesion) {
+		this.sesion = sesion;
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public String getObjetivoDia() {
+		return objetivoDia;
+	}
+
+	public void setObjetivoDia(String objetivoDia) {
+		this.objetivoDia = objetivoDia;
+	}
+
+	public List<Ejercicio> getEjercicios() {
+		return ejercicios;
+	}
+
+	public void setEjercicios(List<Ejercicio> ejercicios) {
+		this.ejercicios = ejercicios;
+	}
+
+}

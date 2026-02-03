@@ -1,0 +1,11 @@
+package com.fmSport.service;
+
+import org.springframework.stereotype.Service;
+
+import com.fmSport.repository.ServicioRepository;
+
+@Service
+public class ServicioService {
+
+	ServicioRepository sr;
+}

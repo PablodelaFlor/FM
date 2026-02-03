@@ -1,0 +1,65 @@
+package com.fmSport.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.fmSport.model.Servicio;
+import com.fmSport.repository.ServicioRepository;
+
+@Service
+public class ServicioService {
+
+	@Autowired
+	ServicioRepository sr;
+
+	public Servicio crear(Servicio s) {
+		return sr.save(s);
+	}
+
+	public List<Servicio> listar() {
+		return sr.findAll();
+	}
+
+	public Servicio buscarPorId(Long id) {
+		return sr.findById(id).orElse(null);
+	}
+
+	public Servicio actualizar(Long id, Servicio datos) {
+		Servicio s = buscarPorId(id);
+		if (s != null) {
+			s.setNombre(datos.getNombre());
+			s.setCategoria(datos.getCategoria());
+			s.setDuracionMin(datos.getDuracionMin());
+			s.setPrecioBase(datos.getPrecioBase());
+			s.setDescripcion(datos.getDescripcion());
+			s.setActivo(datos.getActivo());
+			return sr.save(s);
+		} else {
+			return null;
+		}
+	}
+
+	public boolean borrar(Long id) {
+		if (!sr.existsById(id)) {
+			return false;
+		} else {
+
+			sr.deleteById(id);
+			return true;
+		}
+	}
+
+	public List<Servicio> listarActivos() {
+		return sr.findByActivoTrue();
+	}
+
+	public List<Servicio> porCategoria(String categoria) {
+		return sr.findByCategoria(categoria);
+	}
+
+	public List<Servicio> buscarPorNombre(String texto) {
+		return sr.findByNombreContainingIgnoreCase(texto);
+	}
+}

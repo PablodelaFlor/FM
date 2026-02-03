@@ -1,0 +1,22 @@
+package com.fmSport.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.fmSport.model.Servicio;
+import com.fmSport.repository.ServicioRepository;
+
+@Service
+public class ServicioService {
+
+	ServicioRepository sr;
+	
+	public Servicio crear(Servicio s) {
+		return sr.save(s);
+	}
+	
+	public List<Servicio> listar(){
+		return sr.findAll();
+	}
+}

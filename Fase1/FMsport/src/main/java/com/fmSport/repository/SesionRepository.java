@@ -1,0 +1,21 @@
+package com.fmSport.repository;
+
+import java.time.LocalDate;
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.fmSport.model.Sesion;
+
+public interface SesionRepository extends JpaRepository<Sesion,Long>{
+	
+	  List<Sesion> findByEstado(String estado);
+
+	    List<Sesion> findByProfesionalId(Long profesionalId);
+
+	    List<Sesion> findByServicioId(Long servicioId);
+
+	    List<Sesion> findByServicioCategoria(String categoria);
+
+	    List<Sesion> findByFecha(LocalDate fecha);
+}

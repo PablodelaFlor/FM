@@ -1,0 +1,11 @@
+package com.fmSport.model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "pago")
+
+public class Pago {
+
+}

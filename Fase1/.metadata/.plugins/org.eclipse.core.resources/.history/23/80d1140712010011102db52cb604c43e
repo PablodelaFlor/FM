@@ -1,0 +1,14 @@
+package com.fmSport.repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.fmSport.model.Servicio;
+
+public interface ServicioRepository extends JpaRepository<Servicio, Long>{
+
+	List<Servicio> findByActivoTrue();
+	
+	List<Servicio> findByCategoria(String categoria);
+}

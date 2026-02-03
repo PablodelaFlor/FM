@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.math.BigDecimal"/>
+    <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.OneToMany"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.ManyToOne"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.OneToOne"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.JoinColumn"/>
+    <fullyQualifiedTypeName name="com.fmSport.model.WodDetalle"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Table"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Id"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.GeneratedValue"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.GenerationType"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Column"/>
+    <fullyQualifiedTypeName name="com.fmSport.model.Ejercicio"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.JoinTable"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.ManyToMany"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="com.fmSport.repository.ServicioRepository"/>
+    <fullyQualifiedTypeName name="com.fmSport.model.Servicio"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Entity"/>
+    <fullyQualifiedTypeName name="com.fmSport.repository.SesionRepository"/>
+    <fullyQualifiedTypeName name="com.fmSport.model.Sesion"/>
+    <fullyQualifiedTypeName name="com.fmSport.repository.ReservaRepository"/>
+    <fullyQualifiedTypeName name="com.fmSport.model.Reserva"/>
+    <fullyQualifiedTypeName name="com.fmSport.repository.ClienteRepository"/>
+    <fullyQualifiedTypeName name="java.time.LocalDate"/>
+    <fullyQualifiedTypeName name="com.fmSport.repository.ProfesionalRepository"/>
+    <fullyQualifiedTypeName name="com.fmSport.model.Profesional"/>
+    <fullyQualifiedTypeName name="com.fmSport.repository.NotaFisioRepository"/>
+    <fullyQualifiedTypeName name="com.fmSport.model.NotaFisio"/>
+    <fullyQualifiedTypeName name="com.fmSport.repository.UsuarioRepository"/>
+    <fullyQualifiedTypeName name="com.fmSport.model.Usuario"/>
+    <fullyQualifiedTypeName name="com.fmSport.model.Cliente"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
+    <fullyQualifiedTypeName name="com.fmSport.model.Pago"/>
+    <fullyQualifiedTypeName name="com.fmSport.repository.PagoRepository"/>
+</qualifiedTypeNameHistroy>

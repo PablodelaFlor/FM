@@ -1,0 +1,58 @@
+package com.fmSport.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.fmSport.model.Pago;
+import com.fmSport.repository.PagoRepository;
+
+@Service
+public class PagoServiceImp implements PagoService {
+
+	@Autowired
+	PagoRepository pr;
+	
+	
+	@Override
+	public Pago crear(Pago p) {
+		return pr.save(p);
+	}
+
+	@Override
+	public List<Pago> listar() {
+		return pr.findAll();
+	}
+
+	@Override
+	public Pago actualizar(Long id, Pago datos) {
+		Pago p = obtener(id);
+		
+		if(p != null) {
+			p.setCliente(datos.getCliente());
+			p.setEstado(datos.getEstado());
+			p.setFechaPago(datos.getFechaPago());
+			p.setImporte(datos.getImporte());
+			p.setMetodoPago(datos.getMetodoPago());
+			p.setReferencia(datos.getReferencia());
+			return pr.save(p);
+		}else {
+			return null;
+		}
+	}
+
+	@Override
+	public boolean borrar(Long id) {
+		if(!pr.existsById(id)) {
+			return false;
+		}
+		
+	}
+
+	@Override
+	public Pago obtener(Long id) {
+		return pr.findById(id).orElse(null);
+	}
+
+}

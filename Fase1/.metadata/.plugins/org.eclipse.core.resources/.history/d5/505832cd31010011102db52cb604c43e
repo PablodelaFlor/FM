@@ -1,0 +1,41 @@
+package com.fmSport.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.fmSport.model.Pago;
+import com.fmSport.repository.PagoRepository;
+
+@Service
+public class PagoServiceImp implements PagoService {
+
+	@Autowired
+	PagoRepository pr;
+	
+	
+	@Override
+	public Pago crear(Pago p) {
+		return null;
+	}
+
+	@Override
+	public List<Pago> listar() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Pago actualizar(Long id, Pago datos) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean borrar(Long id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

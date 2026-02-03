@@ -1,0 +1,89 @@
+package com.fmSport.model;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+
+@Entity
+public class Cliente {
+
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	@Column
+	private String objetivos;
+	
+	@Column
+	private String lesiones;
+	
+	@Column
+	private String observaciones;
+	
+	@OneToOne
+	@JoinColumn(name = "usuario_id")
+	private Usuario usuario;
+	
+	@Column
+	private String nivel;
+
+	public Cliente() {
+		super();
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getObjetivos() {
+		return objetivos;
+	}
+
+	public void setObjetivos(String objetivos) {
+		this.objetivos = objetivos;
+	}
+
+	public String getLesiones() {
+		return lesiones;
+	}
+
+	public void setLesiones(String lesiones) {
+		this.lesiones = lesiones;
+	}
+
+	public String getObservaciones() {
+		return observaciones;
+	}
+
+	public void setObservaciones(String observaciones) {
+		this.observaciones = observaciones;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public String getNivel() {
+		return nivel;
+	}
+
+	public void setNivel(String nivel) {
+		this.nivel = nivel;
+	}
+	
+	
+	
+}

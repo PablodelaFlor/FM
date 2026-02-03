@@ -1,0 +1,21 @@
+package com.fmSport.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.fmSport.model.Usuario;
+import com.fmSport.repository.UsuarioRepository;
+
+@Service
+public class UsuarioService {
+
+	@Autowired
+	UsuarioRepository ur;
+	
+	
+	public Usuario crear(Usuario u) {
+		return ur.save(u);
+	}
+	
+	
+}

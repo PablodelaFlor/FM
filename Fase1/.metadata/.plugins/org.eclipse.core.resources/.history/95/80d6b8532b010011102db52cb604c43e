@@ -1,0 +1,42 @@
+package com.fmSport.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.fmSport.model.Usuario;
+import com.fmSport.repository.UsuarioRepository;
+
+@Service
+public class UsuarioService {
+
+	@Autowired
+	UsuarioRepository ur;
+
+	public Usuario crear(Usuario u) {
+		return ur.save(u);
+	}
+
+	public List<Usuario> listar() {
+		return ur.findAll();
+	}
+
+	public Usuario obtener(Long id) {
+		return ur.findById(id).orElse(null);
+	}
+	
+	public Usuario actualizar(Long id,Usuario datos) {
+		Usuario u = obtener(id);
+		
+		if(u != null) {
+			u.setActivo(datos.getActivo());
+			u.setEmail(datos.getEmail());
+			u.setFechaAlta(datos.getFechaAlta());
+			u.setNombre(datos.getNombre());
+			u.setPassword(datos.getPassword());
+			u.setRol(datos.getRol());
+		}
+	}
+
+}
