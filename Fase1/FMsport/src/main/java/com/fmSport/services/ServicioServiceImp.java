@@ -9,7 +9,7 @@ import com.fmSport.model.Servicio;
 import com.fmSport.repository.ServicioRepository;
 
 @Service
-public class ServicioServiceImp {
+public class ServicioServiceImp implements ServicioService{
 
 	@Autowired
 	ServicioRepository sr;

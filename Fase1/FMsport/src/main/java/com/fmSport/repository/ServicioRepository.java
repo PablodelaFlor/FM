@@ -13,4 +13,6 @@ public interface ServicioRepository extends JpaRepository<Servicio, Long>{
 	List<Servicio> findByCategoria(String categoria);
 	
 	List<Servicio> findByNombreContainingIgnoreCase(String nombre);
+	
+	
 }
