@@ -1,6 +1,0 @@
-package com.fmSport.model;
-
-@Entity
-public class Usuario {
-
-}
