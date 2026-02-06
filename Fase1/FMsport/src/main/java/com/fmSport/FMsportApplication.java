@@ -100,8 +100,10 @@ public class FMsportApplication  implements CommandLineRunner {
 	        c1.setNombre("Juan Pérez");
 	        c1.setEmail("juan@mail.com");
 	        c1.setLesiones("Ninguna");
-	        c1.setFechaNacimiento(LocalDate.of(1990, 10, 25));
-	        c1.setObservaciones("Buen desarrollo");
+	        c1.setObservaciones("Cliente nuevo");
+	        c1.setFechaNacimiento(LocalDate.of(2000, 5, 10));
+	        c1.setUsuario(u1); // Usuario creado antes
+
 	        
 	        Cliente c2 = new Cliente();
 	        c2.setNombre("María López");

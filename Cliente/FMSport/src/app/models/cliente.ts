@@ -1,3 +1,5 @@
+import { Usuario } from "./usuario";
+
 export interface Cliente {
   id: number;
   nombre: string;
@@ -5,4 +7,5 @@ export interface Cliente {
   observaciones:string;
   fechaNacimiento:Date;
   email: string;
+  usuario: Usuario;
 }
