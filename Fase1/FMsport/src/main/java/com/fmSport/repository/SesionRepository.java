@@ -9,7 +9,7 @@ import com.fmSport.model.Sesion;
 
 public interface SesionRepository extends JpaRepository<Sesion,Long>{
 	
-	  List<Sesion> findByEstado(String estado);
+	  	List<Sesion> findByEstado(String estado);
 
 	    List<Sesion> findByProfesionalId(Long profesionalId);
 

@@ -1,0 +1,65 @@
+<header class="barra-superior">
+  <div class="marca">
+    <img class="marca-icono" src="/LogoGrande.png" alt="Isotipo Nova Iuve 45">
+    <div class="marca-texto">
+      <div class="marca-titulo">Nova Iuve 45</div>
+      <div class="marca-subtitulo">Centro de entrenamiento y fisioterapia</div>
+    </div>
+  </div>
+
+  <nav class="menu">
+    <button routerLink="/servicios">Servicios</button>
+    <button routerLink="/sesiones">Sesiones</button>
+    <button routerLink="/reservas">Reservas</button>
+  </nav>
+</header>
+
+<main class="contenedor">
+  <section class="hero">
+    <div class="hero-texto">
+      <h1>Panel principal</h1>
+      <p>Gestiona servicios, organiza sesiones y controla reservas desde una única plataforma.</p>
+
+      <div class="hero-acciones">
+        <button class="btn primario" routerLink="/servicios">Crear servicios</button>
+        <button class="btn" routerLink="/sesiones">Ver sesiones</button>
+      </div>
+    </div>
+
+    <!-- SLIDER -->
+    <div class="slider">
+      <div class="slider-pista" id="pistaSlider">
+        <img src="/logotipo.jpeg" alt="Logotipo Nova Iuve 45">
+        <img src="/Logo.jpeg" alt="Logo Nova Iuve 45">
+        <img src="/isotipo.jpeg" alt="Isotipo Nova Iuve 45">
+      </div>
+
+      <div class="puntos">
+        <span class="punto" [class.activo]="indice === 0"></span>
+        <span class="punto" [class.activo]="indice === 1"></span>
+        <span class="punto" [class.activo]="indice === 2"></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="accesos">
+    <a class="tarjeta" routerLink="/servicios">
+      <div class="tarjeta-titulo">Servicios</div>
+      <div class="tarjeta-texto">Entrenamiento personal, grupal y fisioterapia.</div>
+    </a>
+
+    <a class="tarjeta" routerLink="/sesiones">
+      <div class="tarjeta-titulo">Sesiones</div>
+      <div class="tarjeta-texto">Agenda por fecha, sala y profesional.</div>
+    </a>
+
+    <a class="tarjeta" routerLink="/reservas">
+      <div class="tarjeta-titulo">Reservas</div>
+      <div class="tarjeta-texto">Control de plazas y cancelaciones.</div>
+    </a>
+  </section>
+</main>
+
+<footer class="pie">
+  <span>© {{ anio }} Nova Iuve 45</span>
+</footer>

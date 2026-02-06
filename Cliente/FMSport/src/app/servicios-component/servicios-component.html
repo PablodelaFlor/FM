@@ -1,0 +1,29 @@
+<h2>Servicios</h2>
+<button routerLink="/home">Volver</button>
+
+<hr>
+
+<h3>Crear servicio</h3>
+<div style="display:grid; gap:8px; max-width:400px;">
+  <input [(ngModel)]="nuevo.nombre" placeholder="Nombre">
+  <select [(ngModel)]="nuevo.categoria">
+    <option value="PERSONAL">PERSONAL</option>
+    <option value="GRUPAL">GRUPAL</option>
+    <option value="FISIO">FISIO</option>
+  </select>
+  <input type="number" [(ngModel)]="nuevo.duracionMin" placeholder="Duración (min)">
+  <input type="number" [(ngModel)]="nuevo.precioBase" placeholder="Precio">
+  <input [(ngModel)]="nuevo.descripcion" placeholder="Descripción">
+  <button (click)="crear()">Guardar</button>
+</div>
+
+<hr>
+
+<h3>Lista</h3>
+<ul>
+  <li *ngFor="let s of servicios">
+    {{ s.nombre }} - {{ s.categoria }} - {{ s.precioBase }}€
+    <button (click)="borrar(s.id)">Borrar</button>
+  </li>
+</ul>
+

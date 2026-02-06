@@ -1,4 +1,4 @@
-package com.fmSport.Controller;
+package com.fmSport.controller;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -101,9 +101,7 @@ public class ApiController {
 		return ResponseEntity.ok(ss.buscarPorNombre(texto));
 	}
 
-	// =========================================================
 	// ======================== SESION ==========================
-	// =========================================================
 
 	@GetMapping("/sesiones")
 	public ResponseEntity<List<Sesion>> listarSesiones() {

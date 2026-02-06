@@ -18,7 +18,7 @@ public class Cliente {
 	private Long id;
 
 	@Column
-	private String objetivos;
+	private String nombre;
 
 	@Column
 	private String lesiones;
@@ -28,17 +28,39 @@ public class Cliente {
 
 	@Column
 	private LocalDate fechaNacimiento;
+	
+	@Column
+	private String email;
 
 	@OneToOne
 	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
 
-	@Column
-	private String nivel;
 
 	public Cliente() {
 		super();
 	}
+
+	
+	public String getNombre() {
+		return nombre;
+	}
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+
+	public String getEmail() {
+		return email;
+	}
+
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 
 	public Long getId() {
 		return id;
@@ -46,14 +68,6 @@ public class Cliente {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getObjetivos() {
-		return objetivos;
-	}
-
-	public void setObjetivos(String objetivos) {
-		this.objetivos = objetivos;
 	}
 
 	public String getLesiones() {
@@ -78,14 +92,6 @@ public class Cliente {
 
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
-	}
-
-	public String getNivel() {
-		return nivel;
-	}
-
-	public void setNivel(String nivel) {
-		this.nivel = nivel;
 	}
 
 	public LocalDate getFechaNacimiento() {

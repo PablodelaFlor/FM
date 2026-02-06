@@ -34,10 +34,10 @@ public class ClienteServiceImp implements ClienteService{
 		}
 
 		c.setUsuario(datos.getUsuario());
+		c.setNombre(datos.getNombre());
 		c.setFechaNacimiento(datos.getFechaNacimiento());
-		c.setObjetivos(datos.getObjetivos());
+		c.setEmail(datos.getEmail());
 		c.setLesiones(datos.getLesiones());
-		c.setNivel(datos.getNivel());
 		c.setObservaciones(datos.getObservaciones());
 
 		return cr.save(c);

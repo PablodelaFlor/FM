@@ -29,7 +29,7 @@ public class Servicio {
 	private Integer duracionMin;
 	
 	@Column 
-	private BigDecimal precioBase;
+	private float precioBase;
 	
 	@Column
 	private String descripcion;
@@ -72,11 +72,11 @@ public class Servicio {
 		this.duracionMin = duracionMin;
 	}
 
-	public BigDecimal getPrecioBase() {
+	public float getPrecioBase() {
 		return precioBase;
 	}
 
-	public void setPrecioBase(BigDecimal precioBase) {
+	public void setPrecioBase(float precioBase) {
 		this.precioBase = precioBase;
 	}
 

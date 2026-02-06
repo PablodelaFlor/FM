@@ -1,0 +1,220 @@
+* { box-sizing: border-box; }
+
+/* Hace que el componente ocupe toda la pantalla y el footer se vaya abajo */
+:host {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+/* ===== BARRA SUPERIOR ===== */
+.barra-superior{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  background: rgba(0,0,0,0.90);
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+  backdrop-filter: blur(10px);
+}
+
+.marca{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.marca-icono{
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+}
+
+.marca-titulo{
+  font-weight: 900;
+  font-size: 18px;
+}
+
+.marca-subtitulo{
+  color: rgba(255,255,255,0.70);
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+.menu{
+  display: flex;
+  gap: 10px;
+}
+
+.menu button{
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 700;
+  transition: 0.2s;
+}
+
+.menu button:hover{
+  background: rgba(255,255,255,0.10);
+}
+
+.contenedor{
+  flex: 1;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 22px 18px 40px;
+  background: #000;
+}
+
+.hero{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  align-items: center;
+}
+
+.hero-texto h1{
+  margin: 0 0 10px;
+  font-size: 40px;
+}
+
+.hero-texto p{
+  margin: 0 0 16px;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.6;
+  max-width: 520px;
+}
+
+.hero-acciones{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn{
+  padding: 11px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.12);
+  cursor: pointer;
+  font-weight: 800;
+  transition: 0.2s;
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+}
+
+.btn:hover{
+  background: rgba(255,255,255,0.10);
+}
+
+.btn.primario{
+  background: #d4af37;
+  border-color: rgba(212,175,55,0.35);
+  color: #000;
+}
+
+.btn.primario:hover{
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.slider{
+  width: 100%;
+  height: 360px;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: #000;
+  box-shadow: 0 18px 55px rgba(0,0,0,0.55);
+  position: relative;
+}
+
+.slider-pista{
+  display: flex;
+  height: 100%;
+  transition: transform 0.6s ease;
+}
+
+.slider-pista img{
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* PARA LOGOS */
+  background: #000;
+  display: block;
+}
+
+.puntos{
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.punto{
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.45);
+  background: rgba(255,255,255,0.12);
+}
+
+.punto.activo{
+  background: rgba(212,175,55,0.95);
+  border-color: rgba(212,175,55,0.95);
+}
+
+.accesos{
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.tarjeta{
+  text-decoration: none;
+  color: #fff;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 16px;
+  padding: 16px;
+  transition: 0.2s;
+}
+
+.tarjeta:hover{
+  background: rgba(255,255,255,0.10);
+  transform: translateY(-2px);
+}
+
+.tarjeta-titulo{
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.tarjeta-texto{
+  color: rgba(255,255,255,0.70);
+  line-height: 1.4;
+}
+
+.pie{
+  padding: 18px;
+  text-align: center;
+  color: rgba(255,255,255,0.60);
+  border-top: 1px solid rgba(255,255,255,0.10);
+  background: #000;
+}
+
+@media (max-width: 900px){
+  .hero{ grid-template-columns: 1fr; }
+  .slider{ height: 260px; }
+  .accesos{ grid-template-columns: 1fr; }
+  .menu{ display: none; }
+}
