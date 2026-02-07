@@ -6,24 +6,33 @@
 <h3>Crear servicio</h3>
 <div style="display:grid; gap:8px; max-width:400px;">
   <input [(ngModel)]="nuevo.nombre" placeholder="Nombre">
+
   <select [(ngModel)]="nuevo.categoria">
     <option value="PERSONAL">PERSONAL</option>
     <option value="GRUPAL">GRUPAL</option>
     <option value="FISIO">FISIO</option>
   </select>
+
   <input type="number" [(ngModel)]="nuevo.duracionMin" placeholder="Duración (min)">
   <input type="number" [(ngModel)]="nuevo.precioBase" placeholder="Precio">
   <input [(ngModel)]="nuevo.descripcion" placeholder="Descripción">
+
   <button (click)="crear()">Guardar</button>
 </div>
 
 <hr>
 
 <h3>Lista</h3>
-<ul>
-  <li *ngFor="let s of servicios">
-    {{ s.nombre }} - {{ s.categoria }} - {{ s.precioBase }}€
-    <button (click)="borrar(s.id)">Borrar</button>
-  </li>
-</ul>
 
+@if (servicios.length === 0) {
+  <p>No hay servicios cargados.</p>
+} @else {
+  <ul>
+    @for (s of servicios; track $index) {
+      <li>
+        {{ s.nombre }} - {{ s.categoria }} - {{ s.precioBase }}€
+        <button (click)="borrar($index)">Borrar</button>
+      </li>
+    }
+  </ul>
+}

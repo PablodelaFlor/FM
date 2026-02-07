@@ -3,10 +3,11 @@ import { RouterModule } from '@angular/router';
 import { ServicioService } from '../services/servicio-service';
 import { Servicio } from '../models/servicio';
 import { FormsModule, NgModel } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-servicios-component',
-  imports: [RouterModule,FormsModule],
+  imports: [RouterModule,FormsModule, CommonModule],
   templateUrl: './servicios-component.html',
   styleUrl: './servicios-component.css',
 })
@@ -15,7 +16,6 @@ export class ServiciosComponent {
   servicios: Servicio[] = [];
 
   nuevo: Servicio = {
-    id: 0,
     nombre: '',
     categoria: 'PERSONAL',
     duracionMin: 60,
@@ -39,7 +39,6 @@ export class ServiciosComponent {
   crear(): void {
     this.ss.crear(this.nuevo).subscribe(() => {
       this.nuevo = {
-        id: 0,
         nombre: '',
         categoria: 'PERSONAL',
         duracionMin: 60,
